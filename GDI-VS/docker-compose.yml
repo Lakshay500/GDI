@@ -1,0 +1,275 @@
+name: gdi-vs
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-gdivs}
+      POSTGRES_USER: ${POSTGRES_USER:-gdivs_app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-gdivs_app} -d ${POSTGRES_DB:-gdivs}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  quarantine-init:
+    image: busybox:1.36
+    user: "0:0"
+    command: ["sh", "-c", "mkdir -p /var/lib/gdi-vs/quarantine && chown -R 10001:10001 /var/lib/gdi-vs/quarantine && chmod 0700 /var/lib/gdi-vs/quarantine"]
+    volumes:
+      - document_quarantine:/var/lib/gdi-vs/quarantine
+    restart: "no"
+
+  migrate:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: ["alembic", "-c", "alembic.ini", "upgrade", "head"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-gdivs_app}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-gdivs}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-gdivs_app}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-gdivs}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      CELERY_BROKER_URL: redis://redis:6379/1
+      CELERY_RESULT_BACKEND: redis://redis:6379/2
+      DOCUMENT_QUARANTINE_DIR: /var/lib/gdi-vs/quarantine
+      CLAMAV_HOST: clamav
+      CLAMAV_PORT: 3310
+      FABRIC_GATEWAY_BRIDGE_URL: http://fabric-gateway:8081
+      FABRIC_GATEWAY_API_TOKEN: ${FABRIC_GATEWAY_API_TOKEN:-}
+      FABRIC_ORGANISATION_MSP_ID: ${FABRIC_ORGANISATION_MSP_ID:-}
+      FABRIC_CHANNEL_NAME: ${FABRIC_CHANNEL_NAME:-}
+      FABRIC_CHAINCODE_NAME: ${FABRIC_CHAINCODE_NAME:-}
+      FABRIC_NETWORK_ID: ${FABRIC_NETWORK_ID:-fabric-consortium}
+      IPFS_API_URL: http://ipfs:5001
+      IPFS_TIMEOUT_SECONDS: ${IPFS_TIMEOUT_SECONDS:-20}
+      IPFS_ENCRYPTION_KEY: ${IPFS_ENCRYPTION_KEY:?Set a 32-byte URL-safe base64 IPFS_ENCRYPTION_KEY}
+      IPFS_KEY_REFERENCE: ${IPFS_KEY_REFERENCE:-ENV:IPFS_ENCRYPTION_KEY}
+      PUBLIC_VERIFY_BASE_URL: ${PUBLIC_VERIFY_BASE_URL:-}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - document_quarantine:/var/lib/gdi-vs/quarantine
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      quarantine-init:
+        condition: service_completed_successfully
+      migrate:
+        condition: service_completed_successfully
+      ipfs:
+        condition: service_healthy
+      clamav:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+  document-worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: ["celery", "-A", "app.celery_app:celery_app", "worker", "--loglevel=INFO", "--queues=document-processing", "--concurrency=2", "--max-tasks-per-child=20"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-gdivs_app}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-gdivs}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      CELERY_BROKER_URL: redis://redis:6379/1
+      CELERY_RESULT_BACKEND: redis://redis:6379/2
+      DOCUMENT_QUARANTINE_DIR: /var/lib/gdi-vs/quarantine
+      CLAMAV_HOST: clamav
+      CLAMAV_PORT: 3310
+      DOCUMENT_VALIDATION_TIMEOUT_SECONDS: 6
+      DOCUMENT_EXTRACTION_TIMEOUT_SECONDS: 30
+      GDI_OCR_LANG: eng
+      FABRIC_GATEWAY_BRIDGE_URL: http://fabric-gateway:8081
+      FABRIC_GATEWAY_API_TOKEN: ${FABRIC_GATEWAY_API_TOKEN:-}
+      FABRIC_ORGANISATION_MSP_ID: ${FABRIC_ORGANISATION_MSP_ID:-}
+      FABRIC_CHANNEL_NAME: ${FABRIC_CHANNEL_NAME:-}
+      FABRIC_CHAINCODE_NAME: ${FABRIC_CHAINCODE_NAME:-}
+      FABRIC_NETWORK_ID: ${FABRIC_NETWORK_ID:-fabric-consortium}
+      IPFS_API_URL: http://ipfs:5001
+      IPFS_TIMEOUT_SECONDS: ${IPFS_TIMEOUT_SECONDS:-20}
+      IPFS_ENCRYPTION_KEY: ${IPFS_ENCRYPTION_KEY:?Set a 32-byte URL-safe base64 IPFS_ENCRYPTION_KEY}
+      IPFS_KEY_REFERENCE: ${IPFS_KEY_REFERENCE:-ENV:IPFS_ENCRYPTION_KEY}
+    volumes:
+      - document_quarantine:/var/lib/gdi-vs/quarantine
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      quarantine-init:
+        condition: service_completed_successfully
+      migrate:
+        condition: service_completed_successfully
+      clamav:
+        condition: service_healthy
+      ipfs:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+
+  outbox-scheduler:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: ["celery", "-A", "app.celery_app:celery_app", "beat", "--loglevel=INFO", "--schedule=/tmp/celerybeat-schedule"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-gdivs_app}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-gdivs}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      CELERY_BROKER_URL: redis://redis:6379/1
+      CELERY_RESULT_BACKEND: redis://redis:6379/2
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+
+  fabric-gateway:
+    profiles: [fabric]
+    build:
+      context: ./blockchain/gateway
+      dockerfile: Dockerfile
+    environment:
+      FABRIC_GATEWAY_ENDPOINT: ${FABRIC_GATEWAY_ENDPOINT:-}
+      FABRIC_TLS_ROOT_CERT: /run/secrets/fabric_tls_root.pem
+      FABRIC_CLIENT_CERT: /run/secrets/fabric_client_cert.pem
+      FABRIC_CLIENT_KEY: /run/secrets/fabric_client_key.pem
+      FABRIC_MSP_ID: ${FABRIC_MSP_ID:-}
+      FABRIC_CHANNEL_NAME: ${FABRIC_CHANNEL_NAME:-}
+      FABRIC_CHAINCODE_NAME: ${FABRIC_CHAINCODE_NAME:-}
+      FABRIC_GATEWAY_API_TOKEN: ${FABRIC_GATEWAY_API_TOKEN:-}
+      FABRIC_GATEWAY_LISTEN: 0.0.0.0:8081
+    volumes:
+      - ./secrets/fabric:/run/secrets:ro
+    expose: ["8081"]
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+  ipfs:
+    image: ipfs/kubo:v0.32.1
+    command: ["daemon", "--migrate=true"]
+    volumes:
+      - ipfs_data:/data/ipfs
+      - ipfs_export:/export
+    expose: ["5001"]
+    healthcheck:
+      test: ["CMD-SHELL", "ipfs id >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    read_only: false
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+  clamav:
+    image: clamav/clamav:stable
+    platform: linux/amd64
+    ports:
+      - "127.0.0.1:3310:3310"
+    volumes:
+      - clamav_database:/var/lib/clamav
+    healthcheck:
+      test: ["CMD-SHELL", "clamdscan --ping 1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    profiles: [monitoring]
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus", "--web.enable-lifecycle"]
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/alerts:/etc/prometheus/alerts:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    profiles: [monitoring]
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?Set GRAFANA_ADMIN_PASSWORD to enable monitoring profile}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/gdi-vs-overview.json:/var/lib/grafana/dashboards/gdi-vs-overview.json:ro
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  clamav_database:
+  document_quarantine:
+  ipfs_data:
+  ipfs_export:
+  prometheus_data:
+  grafana_data:
