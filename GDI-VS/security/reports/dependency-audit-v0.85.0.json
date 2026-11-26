@@ -1,0 +1,42 @@
+{
+  "audits": [],
+  "generated_at": "2026-11-22T14:33:17.178189+00:00",
+  "interpretation": "No audit result means no vulnerability clearance. Missing lockfiles or tools are blocked, never clean.",
+  "lockfile_readiness": "blocked",
+  "lockfiles": [
+    {
+      "ecosystem": "npm",
+      "lockfile": "frontend/package-lock.json",
+      "reason": "lockfile_missing",
+      "status": "blocked"
+    },
+    {
+      "ecosystem": "uv",
+      "lockfile": "backend/uv.lock",
+      "reason": "lockfile_missing",
+      "status": "blocked"
+    },
+    {
+      "ecosystem": "go_gateway",
+      "lockfile": "blockchain/gateway/go.sum",
+      "reason": "lockfile_missing",
+      "status": "blocked"
+    },
+    {
+      "ecosystem": "go_chaincode",
+      "lockfile": "blockchain/chaincode/gdi-document-contract/go.sum",
+      "reason": "lockfile_missing",
+      "status": "blocked"
+    },
+    {
+      "ecosystem": "go_evidence_verifier",
+      "lockfile": "blockchain/evidence-verifier/go.sum",
+      "reason": "lockfile_missing",
+      "status": "blocked"
+    }
+  ],
+  "project": "GDI-VS",
+  "release_version": "0.85.0",
+  "schema_version": 1,
+  "scope": "resolved dependency vulnerability audit; not a source-manifest-only assessment"
+}

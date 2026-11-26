@@ -1,0 +1,166 @@
+{
+  "experiment": "UNSUPERVISED_BASELINE_COMPARISON",
+  "feature_schema_version": "document-anomaly-features-1.0",
+  "training_samples": 300,
+  "test_samples": 200,
+  "training_label_policy": "NORMAL_ONLY",
+  "models": {
+    "ISOLATION_FOREST": {
+      "precision": 0.7538461538461538,
+      "recall": 0.98,
+      "f1": 0.8521739130434782,
+      "confusion_matrix": [
+        [
+          68,
+          32
+        ],
+        [
+          2,
+          98
+        ]
+      ],
+      "threshold_policy": "ESTIMATOR_DEFAULT_DECISION_BOUNDARY"
+    },
+    "ONE_CLASS_SVM_RBF": {
+      "precision": 0.7936507936507936,
+      "recall": 1.0,
+      "f1": 0.8849557522123894,
+      "confusion_matrix": [
+        [
+          74,
+          26
+        ],
+        [
+          0,
+          100
+        ]
+      ],
+      "threshold_policy": "ESTIMATOR_DEFAULT_DECISION_BOUNDARY"
+    },
+    "LOCAL_OUTLIER_FACTOR": {
+      "precision": 0.9900990099009901,
+      "recall": 1.0,
+      "f1": 0.9950248756218906,
+      "confusion_matrix": [
+        [
+          99,
+          1
+        ],
+        [
+          0,
+          100
+        ]
+      ],
+      "threshold_policy": "ESTIMATOR_DEFAULT_DECISION_BOUNDARY"
+    }
+  },
+  "warning": "Scores are not fraud probabilities. Results are corpus-specific and do not approve deployment.",
+  "dataset": "SYNTHETIC_TEST_ONLY",
+  "dataset_summary": {
+    "records": 800,
+    "groups": 80,
+    "normal": 400,
+    "anomalous": 400,
+    "feature_schema_version": "document-anomaly-features-1.0",
+    "source_types": [
+      "SYNTHETIC_TEST"
+    ],
+    "dataset_status": "VALIDATED_NOT_APPROVED"
+  },
+  "seed": 20261116,
+  "train_groups": [
+    "SYNTHETIC-TEMPLATE-FAMILY-0000",
+    "SYNTHETIC-TEMPLATE-FAMILY-0001",
+    "SYNTHETIC-TEMPLATE-FAMILY-0002",
+    "SYNTHETIC-TEMPLATE-FAMILY-0003",
+    "SYNTHETIC-TEMPLATE-FAMILY-0004",
+    "SYNTHETIC-TEMPLATE-FAMILY-0005",
+    "SYNTHETIC-TEMPLATE-FAMILY-0006",
+    "SYNTHETIC-TEMPLATE-FAMILY-0007",
+    "SYNTHETIC-TEMPLATE-FAMILY-0008",
+    "SYNTHETIC-TEMPLATE-FAMILY-0009",
+    "SYNTHETIC-TEMPLATE-FAMILY-0010",
+    "SYNTHETIC-TEMPLATE-FAMILY-0011",
+    "SYNTHETIC-TEMPLATE-FAMILY-0012",
+    "SYNTHETIC-TEMPLATE-FAMILY-0013",
+    "SYNTHETIC-TEMPLATE-FAMILY-0014",
+    "SYNTHETIC-TEMPLATE-FAMILY-0017",
+    "SYNTHETIC-TEMPLATE-FAMILY-0020",
+    "SYNTHETIC-TEMPLATE-FAMILY-0021",
+    "SYNTHETIC-TEMPLATE-FAMILY-0023",
+    "SYNTHETIC-TEMPLATE-FAMILY-0024",
+    "SYNTHETIC-TEMPLATE-FAMILY-0025",
+    "SYNTHETIC-TEMPLATE-FAMILY-0026",
+    "SYNTHETIC-TEMPLATE-FAMILY-0028",
+    "SYNTHETIC-TEMPLATE-FAMILY-0029",
+    "SYNTHETIC-TEMPLATE-FAMILY-0030",
+    "SYNTHETIC-TEMPLATE-FAMILY-0032",
+    "SYNTHETIC-TEMPLATE-FAMILY-0033",
+    "SYNTHETIC-TEMPLATE-FAMILY-0034",
+    "SYNTHETIC-TEMPLATE-FAMILY-0037",
+    "SYNTHETIC-TEMPLATE-FAMILY-0038",
+    "SYNTHETIC-TEMPLATE-FAMILY-0039",
+    "SYNTHETIC-TEMPLATE-FAMILY-0040",
+    "SYNTHETIC-TEMPLATE-FAMILY-0041",
+    "SYNTHETIC-TEMPLATE-FAMILY-0042",
+    "SYNTHETIC-TEMPLATE-FAMILY-0043",
+    "SYNTHETIC-TEMPLATE-FAMILY-0044",
+    "SYNTHETIC-TEMPLATE-FAMILY-0045",
+    "SYNTHETIC-TEMPLATE-FAMILY-0046",
+    "SYNTHETIC-TEMPLATE-FAMILY-0048",
+    "SYNTHETIC-TEMPLATE-FAMILY-0049",
+    "SYNTHETIC-TEMPLATE-FAMILY-0050",
+    "SYNTHETIC-TEMPLATE-FAMILY-0051",
+    "SYNTHETIC-TEMPLATE-FAMILY-0054",
+    "SYNTHETIC-TEMPLATE-FAMILY-0056",
+    "SYNTHETIC-TEMPLATE-FAMILY-0058",
+    "SYNTHETIC-TEMPLATE-FAMILY-0059",
+    "SYNTHETIC-TEMPLATE-FAMILY-0060",
+    "SYNTHETIC-TEMPLATE-FAMILY-0061",
+    "SYNTHETIC-TEMPLATE-FAMILY-0062",
+    "SYNTHETIC-TEMPLATE-FAMILY-0064",
+    "SYNTHETIC-TEMPLATE-FAMILY-0067",
+    "SYNTHETIC-TEMPLATE-FAMILY-0068",
+    "SYNTHETIC-TEMPLATE-FAMILY-0069",
+    "SYNTHETIC-TEMPLATE-FAMILY-0070",
+    "SYNTHETIC-TEMPLATE-FAMILY-0072",
+    "SYNTHETIC-TEMPLATE-FAMILY-0074",
+    "SYNTHETIC-TEMPLATE-FAMILY-0075",
+    "SYNTHETIC-TEMPLATE-FAMILY-0076",
+    "SYNTHETIC-TEMPLATE-FAMILY-0077",
+    "SYNTHETIC-TEMPLATE-FAMILY-0079"
+  ],
+  "test_groups": [
+    "SYNTHETIC-TEMPLATE-FAMILY-0015",
+    "SYNTHETIC-TEMPLATE-FAMILY-0016",
+    "SYNTHETIC-TEMPLATE-FAMILY-0018",
+    "SYNTHETIC-TEMPLATE-FAMILY-0019",
+    "SYNTHETIC-TEMPLATE-FAMILY-0022",
+    "SYNTHETIC-TEMPLATE-FAMILY-0027",
+    "SYNTHETIC-TEMPLATE-FAMILY-0031",
+    "SYNTHETIC-TEMPLATE-FAMILY-0035",
+    "SYNTHETIC-TEMPLATE-FAMILY-0036",
+    "SYNTHETIC-TEMPLATE-FAMILY-0047",
+    "SYNTHETIC-TEMPLATE-FAMILY-0052",
+    "SYNTHETIC-TEMPLATE-FAMILY-0053",
+    "SYNTHETIC-TEMPLATE-FAMILY-0055",
+    "SYNTHETIC-TEMPLATE-FAMILY-0057",
+    "SYNTHETIC-TEMPLATE-FAMILY-0063",
+    "SYNTHETIC-TEMPLATE-FAMILY-0065",
+    "SYNTHETIC-TEMPLATE-FAMILY-0066",
+    "SYNTHETIC-TEMPLATE-FAMILY-0071",
+    "SYNTHETIC-TEMPLATE-FAMILY-0073",
+    "SYNTHETIC-TEMPLATE-FAMILY-0078"
+  ],
+  "normal_only_training_samples": 300,
+  "test_label_counts": {
+    "normal": 100,
+    "anomalous": 100
+  },
+  "limitations": [
+    "All records are generated numeric feature fixtures, not actual government documents.",
+    "Injected anomalies are intentionally simplified and may be easier to detect than real tampering.",
+    "Metrics are a pipeline sanity check only and must not be cited as operational performance.",
+    "No production threshold, model selection or deployment approval is implied."
+  ]
+}

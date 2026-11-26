@@ -1,0 +1,11 @@
+{
+  "workstream": 101,
+  "version": "0.97.0",
+  "feature": "collapsible_responsive_workspace_navigation",
+  "preference_key": "gdivs.sidebar-collapsed",
+  "desktop_collapsed_width_px": 82,
+  "mobile_breakpoint_px": 700,
+  "accessibility": ["aria-label", "aria-pressed", "title", "reduced-motion"],
+  "persistence": "browser_local_storage",
+  "browser_runtime_verified": false
+}

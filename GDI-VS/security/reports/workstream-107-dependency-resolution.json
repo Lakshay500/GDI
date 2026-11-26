@@ -1,0 +1,36 @@
+{
+  "schema": "gdi-vs-dependency-resolution-evidence/v1",
+  "version": "1.0.1",
+  "workstream": 107,
+  "status": "blocked",
+  "lockfiles": {
+    "frontend/package-lock.json": {
+      "status": "missing",
+      "attempt": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=8000",
+      "result": "timed out after 12 seconds; no lockfile generated"
+    },
+    "backend/uv.lock": {
+      "status": "missing",
+      "attempt": "uv lock --offline",
+      "result": "blocked: alembic and other dependencies unavailable in local cache"
+    },
+    "blockchain/gateway/go.sum": {
+      "status": "missing",
+      "attempt": "GOPROXY=off GOTOOLCHAIN=local go mod tidy",
+      "result": "blocked: fabric-gateway and grpc modules unavailable in local cache"
+    },
+    "blockchain/chaincode/gdi-document-contract/go.sum": {
+      "status": "missing",
+      "attempt": "GOPROXY=off GOTOOLCHAIN=local go mod tidy",
+      "result": "blocked: fabric-contract-api-go unavailable in local cache"
+    },
+    "blockchain/evidence-verifier/go.sum": {
+      "status": "not_required",
+      "reason": "module uses Go standard library only"
+    }
+  },
+  "production_build_verified": false,
+  "browser_acceptance_verified": false,
+  "production_approved": false,
+  "note": "No lockfile contents or dependency integrity hashes were fabricated."
+}

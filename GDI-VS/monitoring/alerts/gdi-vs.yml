@@ -1,0 +1,57 @@
+groups:
+  - name: gdi-vs-api
+    rules:
+      - alert: GdiVsApiScrapeMissing
+        expr: up{job="gdi-vs-api"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: GDI-VS API metrics endpoint is unavailable
+      - alert: GdiVsHighServerErrorRate
+        expr: |
+          sum(rate(gdivs_http_requests_total{status=~"5.."}[5m]))
+          / clamp_min(sum(rate(gdivs_http_requests_total[5m])), 0.001) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: GDI-VS API 5xx rate exceeds 5 percent
+      - alert: GdiVsRequestsStuckInFlight
+        expr: gdivs_http_requests_in_flight > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: GDI-VS has more than 100 in-flight HTTP requests
+      - alert: GdiVsCeleryQueueBacklog
+        expr: gdivs_celery_queue_depth > 100
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: GDI-VS document-processing queue backlog exceeds 100 tasks
+      - alert: GdiVsRedisBrokerUnavailable
+        expr: gdivs_celery_broker_available == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: GDI-VS API cannot reach the Celery Redis broker
+
+      - alert: GdiVsHighAverageRequestLatency
+        expr: |
+          sum(rate(gdivs_http_request_duration_seconds_sum[5m]))
+          / clamp_min(sum(rate(gdivs_http_request_duration_seconds_count[5m])), 0.001) > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: GDI-VS average API request latency exceeds 2 seconds
+      - alert: GdiVsCeleryQueueDepthUnavailable
+        expr: gdivs_celery_queue_depth < 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: GDI-VS cannot determine Celery queue depth

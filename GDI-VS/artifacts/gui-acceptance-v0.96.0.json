@@ -1,0 +1,19 @@
+{
+  "schema": "gdi-vs-gui-acceptance/v1",
+  "version": "0.96.0",
+  "feature": "organisation-scoped dashboard document finder",
+  "source_checks": "passed",
+  "accessibility_source_audit": "passed",
+  "issue_count": 0,
+  "browser_execution": "blocked",
+  "blocker": "npm install failed: EAI_AGAIN registry.npmjs.org",
+  "coverage": [
+    "accessible search name",
+    "live filtering of loaded organisation records",
+    "title/type/reference/status matching",
+    "six-result cap",
+    "open existing document detail workflow",
+    "responsive finder styling"
+  ],
+  "scope_note": "Static source checks passed; rendered responsive behaviour and keyboard interaction still require browser execution."
+}

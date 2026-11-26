@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "workstream": 103,
+  "feature": "document-detail-and-version-history-presentation",
+  "checks": [
+    "issuer metadata displayed",
+    "issue and expiry dates displayed",
+    "registration timestamp displayed",
+    "version and recorded-digest counts displayed",
+    "responsive layout source regression"
+  ],
+  "runtime_browser_tested": false
+}

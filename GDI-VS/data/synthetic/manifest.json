@@ -1,0 +1,34 @@
+{
+  "dataset_name": "gdi-vs-synthetic-anomaly-fixtures",
+  "dataset_version": "0.1.0",
+  "seed": 20261116,
+  "records": 800,
+  "families": 80,
+  "records_per_family": 10,
+  "feature_schema_version": "document-anomaly-features-1.0",
+  "source_types": [
+    "SYNTHETIC_TEST"
+  ],
+  "summary": {
+    "records": 800,
+    "groups": 80,
+    "normal": 400,
+    "anomalous": 400,
+    "feature_schema_version": "document-anomaly-features-1.0",
+    "source_types": [
+      "SYNTHETIC_TEST"
+    ],
+    "dataset_status": "VALIDATED_NOT_APPROVED"
+  },
+  "intended_use": "Pipeline development and reproducibility tests only",
+  "prohibited_use": [
+    "Real-world accuracy or efficacy claims",
+    "Government-document fraud prevalence estimation",
+    "Production model approval or deployment",
+    "Substitution for an authorised representative corpus"
+  ],
+  "generation_method": "Seeded synthetic numeric feature distributions with injected anomaly-like signals",
+  "files": {
+    "features_csv": "data/synthetic/anomaly-features.csv"
+  }
+}

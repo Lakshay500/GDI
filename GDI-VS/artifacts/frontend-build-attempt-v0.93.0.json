@@ -1,0 +1,30 @@
+{
+  "schema": "gdi-vs-frontend-build-attempt/v1",
+  "version": "0.93.0",
+  "workstream": 97,
+  "npm_install": {
+    "command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=20000",
+    "status": "blocked",
+    "reason": "EAI_AGAIN registry.npmjs.org",
+    "lockfile_created": false
+  },
+  "typescript_typecheck": {
+    "command": "npm run typecheck",
+    "status": "blocked_missing_dependencies",
+    "typescript_cli": "5.8.3",
+    "errors": [
+      "Cannot find module react",
+      "Cannot find module react-dom/client",
+      "Cannot find module react/jsx-runtime",
+      "JSX.IntrinsicElements unavailable because React type declarations are absent"
+    ]
+  },
+  "vite_production_build": {
+    "command": "npm run build",
+    "status": "blocked_at_typecheck",
+    "reason": "The build script stops at tsc -b; missing React runtime and type declarations prevent semantic compilation, so Vite was not invoked."
+  },
+  "frontend_source_preflight": "passed",
+  "accessibility_source_audit": "passed",
+  "release_status": "development"
+}

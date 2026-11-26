@@ -1,0 +1,10 @@
+{
+  "version": "0.98.0",
+  "workstream": 102,
+  "feature": "document-registry-refinement",
+  "sort_modes": ["newest", "oldest", "title", "status"],
+  "filtering": ["text-query", "status"],
+  "pagination_page_size": 8,
+  "search_scope": "authenticated-organisation-records-loaded-in-frontend",
+  "runtime_browser_validation": "pending"
+}

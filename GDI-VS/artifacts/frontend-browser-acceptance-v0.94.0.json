@@ -1,0 +1,18 @@
+{
+  "schema": "gdi-vs-browser-acceptance/v1",
+  "version": "0.94.0",
+  "workstream": 98,
+  "suite": "Playwright Chromium",
+  "tests_authored": 4,
+  "coverage": [
+    "unauthenticated sign-in rendering and accessible control names",
+    "skip-to-content keyboard interaction",
+    "English-to-Hindi locale switching and document language metadata",
+    "native required-field validation"
+  ],
+  "dependency": "@playwright/test@1.56.1",
+  "execution_status": "blocked",
+  "blocker": "npm registry DNS resolution failed with EAI_AGAIN registry.npmjs.org",
+  "browser_tests_executed": 0,
+  "release_status": "development"
+}

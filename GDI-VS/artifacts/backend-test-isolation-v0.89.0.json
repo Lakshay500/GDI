@@ -1,0 +1,77 @@
+{
+  "schema": "gdi-vs-backend-test-isolation/v1",
+  "python": "3.13.5",
+  "module_count": 5,
+  "executed_module_count": 5,
+  "passed_module_count": 5,
+  "nonpassing_module_count": 0,
+  "test_totals": {
+    "passed": 28,
+    "failed": 0,
+    "errors": 0
+  },
+  "duration_seconds": 25.107,
+  "status": "passed",
+  "modules": [
+    {
+      "module": "backend/tests/test_document_validation.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 7.684,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 5.54
+      }
+    },
+    {
+      "module": "backend/tests/test_ipfs_storage.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.02,
+      "summary": {
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.13
+      }
+    },
+    {
+      "module": "backend/tests/test_issuers_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 6.824,
+      "summary": {
+        "passed": 7,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 4.65
+      }
+    },
+    {
+      "module": "backend/tests/test_model_governance.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.478,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.34
+      }
+    },
+    {
+      "module": "backend/tests/test_model_governance_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 5.1,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 2.87
+      }
+    }
+  ]
+}

@@ -1,0 +1,689 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "github.com/hyperledger/fabric-gateway",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "golang"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "blockchain/gateway/go.mod"
+        }
+      ],
+      "purl": "pkg:golang/github.com/hyperledger/fabric-gateway@v1.8.0",
+      "scope": "required",
+      "type": "library",
+      "version": "v1.8.0"
+    },
+    {
+      "name": "@playwright/test",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/@playwright/test@1.56.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.56.1"
+    },
+    {
+      "name": "@types/react-dom",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/@types/react-dom@18.3.5",
+      "scope": "optional",
+      "type": "library",
+      "version": "18.3.5"
+    },
+    {
+      "name": "@types/react",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/@types/react@18.3.18",
+      "scope": "optional",
+      "type": "library",
+      "version": "18.3.18"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/@vitejs/plugin-react@4.3.4",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.4"
+    },
+    {
+      "name": "react-dom",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/react-dom@18.3.1",
+      "scope": "required",
+      "type": "library",
+      "version": "18.3.1"
+    },
+    {
+      "name": "react",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/react@18.3.1",
+      "scope": "required",
+      "type": "library",
+      "version": "18.3.1"
+    },
+    {
+      "name": "typescript",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/typescript@5.7.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "5.7.3"
+    },
+    {
+      "name": "vite",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "frontend/package.json"
+        }
+      ],
+      "purl": "pkg:npm/vite@5.4.14",
+      "scope": "required",
+      "type": "library",
+      "version": "5.4.14"
+    },
+    {
+      "name": "alembic",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/alembic@>=1.14,<2.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.14,<2.0"
+    },
+    {
+      "name": "argon2-cffi",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/argon2-cffi@>=23.1,<26.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=23.1,<26.0"
+    },
+    {
+      "name": "celery",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/celery@[redis]>=5.4,<6.0",
+      "scope": "required",
+      "type": "library",
+      "version": "[redis]>=5.4,<6.0"
+    },
+    {
+      "name": "cryptography",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/cryptography@>=44.0,<47.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=44.0,<47.0"
+    },
+    {
+      "name": "fastapi",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/fastapi@>=0.115,<1.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=0.115,<1.0"
+    },
+    {
+      "name": "httpx",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/httpx@>=0.27,<1.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=0.27,<1.0"
+    },
+    {
+      "name": "httpx",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml [dev]"
+        }
+      ],
+      "purl": "pkg:pypi/httpx@>=0.27,<1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=0.27,<1.0"
+    },
+    {
+      "name": "numpy",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/numpy@>=2.0,<3.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=2.0,<3.0"
+    },
+    {
+      "name": "Pillow",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/pillow@>=11.0,<13.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=11.0,<13.0"
+    },
+    {
+      "name": "psycopg",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/psycopg@[binary]>=3.2,<4.0",
+      "scope": "required",
+      "type": "library",
+      "version": "[binary]>=3.2,<4.0"
+    },
+    {
+      "name": "pydantic",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/pydantic@>=2.10,<3.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=2.10,<3.0"
+    },
+    {
+      "name": "PyJWT",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/pyjwt@>=2.10,<3.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=2.10,<3.0"
+    },
+    {
+      "name": "PyMuPDF",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/pymupdf@>=1.25,<2.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.25,<2.0"
+    },
+    {
+      "name": "pytest",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml [dev]"
+        }
+      ],
+      "purl": "pkg:pypi/pytest@>=8.0,<9.0",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=8.0,<9.0"
+    },
+    {
+      "name": "python-dotenv",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/python-dotenv@>=1.0,<2.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.0,<2.0"
+    },
+    {
+      "name": "python-multipart",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/python-multipart@>=0.0.9,<1.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=0.0.9,<1.0"
+    },
+    {
+      "name": "qrcode",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/qrcode@>=8.0,<9.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=8.0,<9.0"
+    },
+    {
+      "name": "reportlab",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/reportlab@>=4.2,<5.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=4.2,<5.0"
+    },
+    {
+      "name": "ruff",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml [dev]"
+        }
+      ],
+      "purl": "pkg:pypi/ruff@>=0.6,<1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=0.6,<1.0"
+    },
+    {
+      "name": "scikit-learn",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/scikit-learn@>=1.5,<2.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.5,<2.0"
+    },
+    {
+      "name": "SQLAlchemy",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/sqlalchemy@>=2.0.36,<3.0",
+      "scope": "required",
+      "type": "library",
+      "version": ">=2.0.36,<3.0"
+    },
+    {
+      "name": "uvicorn",
+      "properties": [
+        {
+          "name": "gdi-vs:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "gdi-vs:version-source",
+          "value": "declared-range-not-resolved"
+        },
+        {
+          "name": "gdi-vs:manifest",
+          "value": "backend/pyproject.toml"
+        }
+      ],
+      "purl": "pkg:pypi/uvicorn@[standard]>=0.30,<1.0",
+      "scope": "required",
+      "type": "library",
+      "version": "[standard]>=0.30,<1.0"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:generic/gdi-vs@0.95.0",
+      "name": "GDI-VS",
+      "type": "application",
+      "version": "0.95.0"
+    },
+    "properties": [
+      {
+        "name": "gdi-vs:sbom-kind",
+        "value": "source-manifest-inventory"
+      },
+      {
+        "name": "gdi-vs:resolution-status",
+        "value": "declared-ranges-not-lockfile-resolved"
+      },
+      {
+        "name": "gdi-vs:vulnerability-status",
+        "value": "not-assessed-by-this-generator"
+      }
+    ],
+    "timestamp": "2026-11-22T00:00:00Z",
+    "tools": [
+      {
+        "name": "generate-source-sbom.py",
+        "vendor": "GDI-VS",
+        "version": "0.95.0"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:f99e3ca3-3ccf-5848-bcef-a3e3d28a875a",
+  "specVersion": "1.5",
+  "version": 1
+}

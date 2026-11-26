@@ -1,0 +1,30 @@
+{
+  "schema": "gdi-vs-workstream-validation/v1",
+  "version": "0.92.0",
+  "workstream": 96,
+  "frontend_source_preflight": {
+    "status": "passed",
+    "source_files": 3,
+    "checks": [
+      "package scripts",
+      "strict tsconfig",
+      "HTML root mount",
+      "relative imports",
+      "TypeScript/TSX syntax"
+    ]
+  },
+  "targeted_pytest": {
+    "status": "passed",
+    "passed": 20,
+    "failed": 0
+  },
+  "semantic_typecheck": "not_performed_missing_frontend_dependencies",
+  "vite_production_build": "not_performed_missing_frontend_dependencies",
+  "dependency_lockfiles": {
+    "frontend/package-lock.json": "missing",
+    "backend/uv.lock": "missing",
+    "blockchain/gateway/go.sum": "missing",
+    "blockchain/chaincode/gdi-document-contract/go.sum": "missing"
+  },
+  "release_status": "development"
+}

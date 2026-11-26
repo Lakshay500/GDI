@@ -1,0 +1,14 @@
+{
+  "schema": "gdi-vs-frontend-browser-acceptance/v1",
+  "version": "0.96.0",
+  "browser": "chromium",
+  "server_mode": "vite-production-preview",
+  "tests_authored": 7,
+  "browser_tests_executed": 0,
+  "execution_status": "blocked",
+  "blocker": "npm install failed: EAI_AGAIN registry.npmjs.org",
+  "typescript_passed": false,
+  "production_build_passed": false,
+  "playwright_passed": false,
+  "note": "Seven executable Playwright scenarios are defined. No browser execution is claimed because frontend dependencies could not be installed in this environment."
+}

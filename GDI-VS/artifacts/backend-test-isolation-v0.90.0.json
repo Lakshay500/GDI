@@ -1,0 +1,572 @@
+{
+  "schema": "gdi-vs-backend-test-isolation/v2",
+  "version": "0.90.0",
+  "execution_mode": "batched_isolated_module_runs",
+  "execution_note": "All discovered modules were executed in fresh pytest processes across bounded batches to fit the interactive execution window. Each module completed successfully; this is a merged per-module acceptance record, not a single uninterrupted runner invocation.",
+  "python": "3.13",
+  "module_count": 46,
+  "executed_module_count": 46,
+  "remaining_module_count": 0,
+  "passed_module_count": 46,
+  "nonpassing_module_count": 0,
+  "test_totals": {
+    "passed": 256,
+    "failed": 0,
+    "errors": 0
+  },
+  "status": "passed",
+  "modules": [
+    {
+      "module": "backend/tests/test_acceptance_smoke_script.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.82,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_anomaly_detection.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.226,
+      "summary": {
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.21
+      }
+    },
+    {
+      "module": "backend/tests/test_auth.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 5.05,
+      "summary": {
+        "passed": 9,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 2.86
+      }
+    },
+    {
+      "module": "backend/tests/test_certificate_trust.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.473,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.64
+      }
+    },
+    {
+      "module": "backend/tests/test_database_models.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.571,
+      "summary": {
+        "passed": 2,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.48
+      }
+    },
+    {
+      "module": "backend/tests/test_dependency_lock_check.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.672,
+      "summary": {
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.98
+      }
+    },
+    {
+      "module": "backend/tests/test_deployment_preflight.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.971,
+      "summary": {
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.06
+      }
+    },
+    {
+      "module": "backend/tests/test_document_extraction.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 4.956,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 3.19
+      }
+    },
+    {
+      "module": "backend/tests/test_document_forensics_features.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.771,
+      "summary": {
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_document_signatures.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.086,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.11
+      }
+    },
+    {
+      "module": "backend/tests/test_document_validation.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 7.714,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 5.78
+      }
+    },
+    {
+      "module": "backend/tests/test_documents_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 15.347,
+      "summary": {
+        "passed": 20,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 13.05
+      }
+    },
+    {
+      "module": "backend/tests/test_evidence_fusion.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.773,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_fabric_gateway_client.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.729,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.05
+      }
+    },
+    {
+      "module": "backend/tests/test_field_extraction.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.721,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_health.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.889,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.23
+      }
+    },
+    {
+      "module": "backend/tests/test_image_forensics_features.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.821,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.06
+      }
+    },
+    {
+      "module": "backend/tests/test_ipfs_storage.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.923,
+      "summary": {
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.12
+      }
+    },
+    {
+      "module": "backend/tests/test_issuers_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 7.413,
+      "summary": {
+        "passed": 7,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 4.88
+      }
+    },
+    {
+      "module": "backend/tests/test_jwt_key_rotation.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.571,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.63
+      }
+    },
+    {
+      "module": "backend/tests/test_migrations.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 6.588,
+      "summary": {
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 4.73
+      }
+    },
+    {
+      "module": "backend/tests/test_model_governance.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.074,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.11
+      }
+    },
+    {
+      "module": "backend/tests/test_model_governance_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 5.044,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 2.69
+      }
+    },
+    {
+      "module": "backend/tests/test_model_registry_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 4.647,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 2.41
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_baselines.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.076,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.09
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_dataset.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.176,
+      "summary": {
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.98
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_features.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.279,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.14
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_governance.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.07,
+      "summary": {
+        "passed": 10,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.09
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_preprocessing.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.274,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.2
+      }
+    },
+    {
+      "module": "backend/tests/test_multimodal_reporting.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.373,
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.24
+      }
+    },
+    {
+      "module": "backend/tests/test_observability.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.225,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.1
+      }
+    },
+    {
+      "module": "backend/tests/test_pki_service.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.04,
+      "summary": {
+        "passed": 7,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.12
+      }
+    },
+    {
+      "module": "backend/tests/test_processing_pipeline_orchestration.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.769,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_public_verification.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 3.677,
+      "summary": {
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 1.58
+      }
+    },
+    {
+      "module": "backend/tests/test_release_metadata.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 4.832,
+      "summary": {
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 2.88
+      }
+    },
+    {
+      "module": "backend/tests/test_schema_validation.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.074,
+      "summary": {
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.06
+      }
+    },
+    {
+      "module": "backend/tests/test_source_sbom.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.98,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.05
+      }
+    },
+    {
+      "module": "backend/tests/test_storage_recovery_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 5.707,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 3.08
+      }
+    },
+    {
+      "module": "backend/tests/test_synthetic_anomaly_data.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.923,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.88
+      }
+    },
+    {
+      "module": "backend/tests/test_transactional_outbox.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.372,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.44
+      }
+    },
+    {
+      "module": "backend/tests/test_verification_engine.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.77,
+      "summary": {
+        "passed": 17,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.05
+      }
+    },
+    {
+      "module": "backend/tests/test_verification_evidence_snapshots.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.77,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_verification_orchestration_api.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 11.168,
+      "summary": {
+        "passed": 25,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 8.79
+      }
+    },
+    {
+      "module": "backend/tests/test_visual_tampering_screening.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.121,
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.09
+      }
+    },
+    {
+      "module": "backend/tests/test_workstream_88_lockfile_resolution.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 1.82,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.04
+      }
+    },
+    {
+      "module": "backend/tests/test_workstream_89_dependency_audit.py",
+      "status": "passed",
+      "return_code": 0,
+      "duration_seconds": 2.772,
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "seconds": 0.84
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "gdi-vs-frontend-accessibility-source-audit/v1",
+  "status": "passed",
+  "scope": "Static JSX source inspection only; nested label associations, dynamic names and rendered contrast/focus behaviour require manual/browser testing.",
+  "counts": {
+    "files": 3,
+    "buttons": 49,
+    "links": 3,
+    "form_controls": 30,
+    "images": 1,
+    "aria_attributes": 29
+  },
+  "issue_count": 0,
+  "issues": []
+}

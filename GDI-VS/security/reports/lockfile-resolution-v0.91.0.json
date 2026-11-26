@@ -1,0 +1,82 @@
+{
+  "schema": "gdi-vs-lockfile-resolution/v1",
+  "version": "0.91.0",
+  "status": "blocked",
+  "timeout_seconds_per_command": 10,
+  "results": [
+    {
+      "ecosystem": "frontend/npm",
+      "status": "blocked",
+      "reason": "command exceeded 10s timeout",
+      "lockfile": "frontend/package-lock.json",
+      "elapsed_seconds": 10.01,
+      "output_tail": ""
+    },
+    {
+      "ecosystem": "backend/uv",
+      "status": "blocked",
+      "reason": "command exceeded 10s timeout",
+      "lockfile": "backend/uv.lock",
+      "elapsed_seconds": 10.01,
+      "output_tail": "Using CPython 3.13.5 interpreter at: /usr/bin/python3\nWARN Retry attempt #0. Sleeping 942.953145ms before the next attempt\nWARN Retry attempt #0. Sleeping 6.865567ms before the next attempt\nWARN Retry attempt #0. Sleeping 248.355966ms before the next attempt\nWARN Retry attempt #0. Sleeping 583.896876ms before the next attempt\nWARN Retry attempt #0. Sleeping 377.109228ms before the next attempt\nWARN Retry attempt #0. Sleeping 229.376734ms before the next attempt\n"
+    },
+    {
+      "ecosystem": "blockchain/gateway/go",
+      "status": "blocked",
+      "reason": "resolver exited 1 or did not create the expected lockfile",
+      "lockfile": "blockchain/gateway/go.sum",
+      "elapsed_seconds": 5.08,
+      "output_tail": "go: downloading google.golang.org/grpc v1.67.1\ngo: downloading github.com/hyperledger/fabric-gateway v1.8.0\ngo: github.com/gdi-vs/fabric-gateway-service imports\n\tgithub.com/hyperledger/fabric-gateway/pkg/client: github.com/hyperledger/fabric-gateway@v1.8.0: Get \"https://proxy.golang.org/github.com/hyperledger/fabric-gateway/@v/v1.8.0.zip\": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.241:40383->168.63.129.16:53: i/o timeout\ngo: github.com/gdi-vs/fabric-gateway-service imports\n\tgithub.com/hyperledger/fabric-gateway/pkg/identity: github.com/hyperledger/fabric-gateway@v1.8.0: Get \"https://proxy.golang.org/github.com/hyperledger/fabric-gateway/@v/v1.8.0.zip\": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.241:40383->168.63.129.16:53: i/o timeout\ngo: github.com/gdi-vs/fabric-gateway-service imports\n\tgoogle.golang.org/grpc: google.golang.org/grpc@v1.67.1: Get \"https://proxy.golang.org/google.golang.org/grpc/@v/v1.67.1.zip\": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.241:40383->168.63.129.16:53: i/o timeout\ngo: github.com/gdi-vs/fabric-gateway-service imports\n\tgoogle.golang.org/grpc/credentials: google.golang.org/grpc@v1.67.1: Get \"https://proxy.golang.org/google.golang.org/grpc/@v/v1.67.1.zip\": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.241:40383->168.63.129.16:53: i/o timeout\n"
+    },
+    {
+      "ecosystem": "blockchain/chaincode/go",
+      "status": "blocked",
+      "reason": "resolver exited 1 or did not create the expected lockfile",
+      "lockfile": "blockchain/chaincode/gdi-document-contract/go.sum",
+      "elapsed_seconds": 0.12,
+      "output_tail": "go: downloading github.com/hyperledger/fabric-contract-api-go/v2 v2.2.0\ngo: github.com/gdi-vs/gdi-document-contract imports\n\tgithub.com/hyperledger/fabric-contract-api-go/v2/contractapi: github.com/hyperledger/fabric-contract-api-go/v2@v2.2.0: Get \"https://proxy.golang.org/github.com/hyperledger/fabric-contract-api-go/v2/@v/v2.2.0.zip\": dial tcp: lookup proxy.golang.org on 168.63.129.16:53: read udp 172.26.39.241:60552->168.63.129.16:53: read: connection refused\n"
+    }
+  ],
+  "lockfile_validation": {
+    "schema": "gdi-vs-dependency-lock-check/v1",
+    "version": "0.91.0",
+    "status": "blocked",
+    "checks": {
+      "frontend/npm": {
+        "path": "frontend/package-lock.json",
+        "status": "blocked",
+        "errors": [
+          "missing or empty"
+        ]
+      },
+      "backend/uv": {
+        "path": "backend/uv.lock",
+        "status": "blocked",
+        "errors": [
+          "missing or empty"
+        ]
+      },
+      "blockchain/gateway/go": {
+        "path": "blockchain/gateway/go.sum",
+        "status": "blocked",
+        "errors": [
+          "missing or empty"
+        ]
+      },
+      "blockchain/chaincode/go": {
+        "path": "blockchain/chaincode/gdi-document-contract/go.sum",
+        "status": "blocked",
+        "errors": [
+          "missing or empty"
+        ]
+      },
+      "blockchain/evidence-verifier": {
+        "path": "blockchain/evidence-verifier/go.mod",
+        "status": "passed",
+        "errors": [],
+        "lock_strategy": "Go standard library only; no go.sum required"
+      }
+    },
+    "frontend_version_matches": true
+  }
+}

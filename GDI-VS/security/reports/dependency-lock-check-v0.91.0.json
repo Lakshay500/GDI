@@ -1,0 +1,42 @@
+{
+  "schema": "gdi-vs-dependency-lock-check/v1",
+  "version": "0.91.0",
+  "status": "blocked",
+  "checks": {
+    "frontend/npm": {
+      "path": "frontend/package-lock.json",
+      "status": "blocked",
+      "errors": [
+        "missing or empty"
+      ]
+    },
+    "backend/uv": {
+      "path": "backend/uv.lock",
+      "status": "blocked",
+      "errors": [
+        "missing or empty"
+      ]
+    },
+    "blockchain/gateway/go": {
+      "path": "blockchain/gateway/go.sum",
+      "status": "blocked",
+      "errors": [
+        "missing or empty"
+      ]
+    },
+    "blockchain/chaincode/go": {
+      "path": "blockchain/chaincode/gdi-document-contract/go.sum",
+      "status": "blocked",
+      "errors": [
+        "missing or empty"
+      ]
+    },
+    "blockchain/evidence-verifier": {
+      "path": "blockchain/evidence-verifier/go.mod",
+      "status": "passed",
+      "errors": [],
+      "lock_strategy": "Go standard library only; no go.sum required"
+    }
+  },
+  "frontend_version_matches": true
+}

@@ -1,0 +1,42 @@
+{
+  "lockfiles": {
+    "backend/uv.lock": false,
+    "blockchain/chaincode/gdi-document-contract/go.sum": false,
+    "blockchain/gateway/go.sum": false,
+    "frontend/package-lock.json": false
+  },
+  "npm_registry_dns": {
+    "error_type": "gaierror",
+    "resolves": false
+  },
+  "schema": "gdi-vs-workstream-108-environment-audit/v1",
+  "scope_note": "Local prerequisite inventory only; does not install dependencies, establish registry connectivity beyond DNS, build artifacts, start services or prove runtime acceptance.",
+  "status": "blocked",
+  "tools": {
+    "docker": {
+      "available": false,
+      "version": null
+    },
+    "go": {
+      "available": true,
+      "version": "go version go1.23.2 linux/amd64"
+    },
+    "node": {
+      "available": true,
+      "version": "v22.16.0"
+    },
+    "npm": {
+      "available": true,
+      "version": "10.9.2"
+    },
+    "python": {
+      "available": true,
+      "version": "Python 3.13.5"
+    },
+    "uv": {
+      "available": true,
+      "version": "uv 0.10.0"
+    }
+  },
+  "version": "1.0.1"
+}
